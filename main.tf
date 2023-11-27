@@ -13,14 +13,14 @@ resource "google_storage_bucket" "static" {
 
 
 resource "google_storage_bucket_object" "default" {
-  name         = "index.html"
-  source       = "index.html"
-  bucket       = google_storage_bucket.static.id
+  name   = "index.html"
+  source = "index.html"
+  bucket = google_storage_bucket.static.id
 }
 
 resource "google_storage_bucket_iam_member" "member" {
   provider = google
-  bucket = "dareit_task8_bucket"
-  role   = "roles/storage.objectViewer"
-  member = "allUsers"
+  bucket   = "dareit_task8_bucket"
+  role     = "roles/storage.objectViewer"
+  member   = "allUsers"
 }

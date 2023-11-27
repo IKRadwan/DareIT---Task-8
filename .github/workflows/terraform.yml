@@ -24,13 +24,6 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
 
-      # Update folder with images for html code
-    - name: Deploy to GCS
-      run: |
-        gsutil -m rsync -r -d ./images gs://areit_task8_bucket/
-      env:
-        GOOGLE_CREDENTIALS: ${{ secrets.TF_GOOGLE_CREDENTIALS_TASK8 }}
-
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
@@ -53,5 +46,12 @@ jobs:
     # Run terraform apply
     - name: Terraform Apply
       run: terraform apply -auto-approve
+      env:
+        GOOGLE_CREDENTIALS: ${{ secrets.TF_GOOGLE_CREDENTIALS_TASK8 }}
+
+    # Update folder with images for html code
+    - name: Deploy to GCS
+      run: |
+        gsutil -m rsync -r -d ./images gs://dareit_task8_bucket/
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.TF_GOOGLE_CREDENTIALS_TASK8 }}

@@ -50,12 +50,12 @@ jobs:
         GOOGLE_CREDENTIALS: ${{ secrets.TF_GOOGLE_CREDENTIALS_TASK8 }}
 
 #trying to fix permission problem for images deployment
-      - name: Set up Google Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0.5.0
-        with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-          service_account_key: ${{ secrets.TF_GOOGLE_CREDENTIALS_TASK8 }}
-          export_default_credentials: true
+    - name: Set up Google Cloud SDK
+      uses: google-github-actions/setup-gcloud@v0.5.0
+      with:
+        project_id: ${{ secrets.GCP_PROJECT_ID }}
+        service_account_key: ${{ secrets.TF_GOOGLE_CREDENTIALS_TASK8 }}
+        export_default_credentials: true
 
 # Update folder with images for html code
     - name: Deploy to GCS

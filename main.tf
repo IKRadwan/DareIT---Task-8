@@ -1,7 +1,6 @@
 resource "google_storage_bucket" "static" {
   name          = "dareit_task8_bucket"
   location      = "US"
-  storage_class = "STANDARD"
   force_destroy = true
 
   uniform_bucket_level_access = true
@@ -11,13 +10,12 @@ resource "google_storage_bucket" "static" {
   }
 }
 
-/*
+
 resource "google_storage_bucket_object" "default" {
   name   = "index.html"
   source = "index.html"
   bucket = google_storage_bucket.static.id
 }
-*/
 
 resource "google_storage_bucket_iam_member" "member" {
   provider = google

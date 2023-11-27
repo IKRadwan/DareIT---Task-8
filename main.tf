@@ -1,6 +1,6 @@
 resource "google_storage_bucket" "static" {
   name          = "dareit_task8_bucket"
-  location      = "EU"
+  location      = "US"
   storage_class = "STANDARD"
   force_destroy = true
 
@@ -8,7 +8,6 @@ resource "google_storage_bucket" "static" {
 
   website {
     main_page_suffix = "index.html"
-    not_found_page   = "404.html"
   }
 }
 

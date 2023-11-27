@@ -2,6 +2,7 @@ resource "google_storage_bucket" "static" {
   name          = "dareit_task8_bucket"
   location      = "EU"
   storage_class = "STANDARD"
+  force_destroy = true
 
   uniform_bucket_level_access = true
 
@@ -20,7 +21,7 @@ resource "google_storage_bucket_object" "default" {
 
 resource "google_storage_bucket_iam_member" "member" {
   provider = google
-  bucket   = "dareit_task8_bucket"
+  bucket   = google_storage_bucket.static.id
   role     = "roles/storage.objectViewer"
   member   = "allUsers"
 }

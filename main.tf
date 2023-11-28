@@ -6,16 +6,17 @@ resource "google_storage_bucket" "static" {
   uniform_bucket_level_access = true
 
   website {
-    main_page_suffix = "index.html"
+    main_page_suffix = "./website/index.html"
   }
 }
 
-
+/*
 resource "google_storage_bucket_object" "default" {
   name   = "index.html"
   source = "index.html"
   bucket = google_storage_bucket.static.id
 }
+*/
 
 resource "google_storage_bucket_iam_member" "member" {
   provider = google

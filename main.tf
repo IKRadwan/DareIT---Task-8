@@ -6,7 +6,7 @@ resource "google_storage_bucket" "static" {
   uniform_bucket_level_access = true
 
   website {
-    main_page_suffix = "./website/index.html"
+    main_page_suffix = "website/index.html"
   }
 }
 
@@ -19,13 +19,13 @@ resource "google_storage_bucket_iam_member" "member" {
 
 
 resource "google_storage_bucket_object" "static-website" {
-  name   = "./website/index.html"
-  source = "./website/index.html"
+  name   = "website/index.html"
+  source = "website/index.html"
   bucket = "dareit_task8_terraform"
 }
 
 resource "google_storage_bucket_object" "picture" {
-  name   = "./website/images/myimage.png"
-  source = "./website/images/myimage.png"
+  name   = "website/images/myimage.png"
+  source = "website/images/myimage.png"
   bucket = "dareit_task8_terraform"
 }

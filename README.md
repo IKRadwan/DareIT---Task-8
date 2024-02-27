@@ -1,3 +1,7 @@
+❗**Note**: As of December 26, 2023, the trial Google Cloud account has expired, rendering the associated resources unavailable.
+
+</br>
+
 ## Task 8: Bringing it all together
 
 </br>
